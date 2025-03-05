@@ -1,4 +1,8 @@
-'''Write a program to create a class/structure Node to represent a node in a singly linked list. Each  node should have two attributes: data and next. Implement the following operations'''
+'''Write a program to create a class/structure Node to represent a node in a singly linked list. Each  node should have two attributes: data and next. Implement the following operations
+1. insert_at_beginning(data): Insert a new node with the given data at the beginning of the list. 2. insert_at_end(data): Insert a new node with the given data at the end of the list. 
+3. delete_node(data): Delete the first node in the list that contains the given data.  
+4. traverse(): Traverse the list and print the data of each node '''
+
 
 class Node:
     def __init__(self, data):
