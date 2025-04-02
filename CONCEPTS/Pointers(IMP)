@@ -1,0 +1,48 @@
+Dangling Pointer
+
+    A dangling pointer is a pointer that continues to reference memory that has been freed or deleted.
+
+    This happens when memory is deallocated, but the pointer still holds the old address.
+  example: In Queue even when we delete the node which is pointed by temp from begining, still temp continues to point to next
+code in c: 
+int *ptr = (int*)malloc(sizeof(int)); // Allocating memory
+free(ptr); // Memory is freed
+*ptr = 10; // Dangling pointer usage (undefined behavior)
+solution:
+free(ptr);
+ptr = NULL;
+Wild Pointer
+
+    A wild pointer is a pointer that has not been initialized and holds a garbage value.
+
+    It may point to an unknown memory location, leading to unpredictable behavior.
+
+    Example:
+    int *ptr; // Wild pointer (uninitialized)
+*ptr = 10; // Undefined behavior
+Solution:
+Always initialize pointers before using them:
+int *ptr = NULL; // Safe initialization
+Feature	|Dangling Pointer|	Wild Pointer
+Cause|	Memory is freed but pointer still references it|	Pointer is declared but not initialized
+Behavior|	May cause segmentation faults or unpredictable behavior|	May point to arbitrary memory, leading to crashes
+Prevention|	Set pointer to NULL after freeing memory | Initialize pointer before use
+
+Segmentation Fault in Pointers
+
+A segmentation fault (segfault) occurs when a program tries to access restricted or invalid memory, often due to incorrect pointer usage.
+
+🔹 Common Causes of Segfaults:
+
+    Dereferencing a NULL or uninitialized pointer
+
+    Accessing memory outside an array's boundary
+
+    Using a freed pointer (dangling pointer)
+
+🔹 Example (Segmentation Fault due to Wild Pointer in C):
+int *ptr;  // Wild pointer (uninitialized)
+*ptr = 10; // Invalid memory access → Segfault!
+Solution: Always initialize pointers before using them.
+int *ptr = NULL; // Safe initialization
+#learn in deptyh
